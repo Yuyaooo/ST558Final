@@ -130,7 +130,7 @@ ui <- dashboardPage(skin="red",
                                                h2("Supervised learning model"),
                                                box(width=12,background="red",
                                                    h3("Logistic Regression"),
-                                                   varSelectInput("regvar", "The variables you want to put in the model:", data=read_csv(file = "./breastcancer.csv"), multiple = TRUE)
+                                                   varSelectInput("regvar", "The variables you want to put in the model:", data=select(read_csv(file = "./breastcancer.csv"),-class), multiple = TRUE)
                                                ),
                                                box(width=12,
                                                    #tableOutput("table")
