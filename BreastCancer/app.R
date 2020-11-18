@@ -130,7 +130,7 @@ ui <- dashboardPage(skin="red",
                                                h2("Supervised learning model"),
                                                box(width=12,background="red",
                                                    h3("Logistic Regression"),
-                                                   varSelectInput("regvar", "The variables you want to put in the model:", data=select(breast,-class), multiple = TRUE)
+                                                   varSelectInput("regvar", "The variables you want to put in the model:", data=read_csv(file = "./breastcancer.csv"), multiple = TRUE)
                                                ),
                                                box(width=12,
                                                    #tableOutput("table")
@@ -377,7 +377,7 @@ server <- shinyServer(function(input, output, session) {
     })
     
     predData <- reactive({
-        data.frame(menopause=input$men, node.caps=input$node, deg.malig = input$deg, breast = input$breast, breast.quad = input$breast.quad, irradiat = input$irra, age.avg = input$agepred, tumor.size.avg = input$tumorpred, inv.nodese.avg = input$nodepred)
+        data.frame(menopause=as.factor(input$men), node.caps=as.factor(input$node), deg.malig = as.factor(input$deg), breast = as.factor(input$breast), breast.quad = as.factor(input$breast.quad), irradiat = as.factor(input$irra), age.avg = input$agepred, tumor.size.avg = input$tumorpred, inv.nodese.avg = input$nodepred)
     })
     
     predglm <- function(){
