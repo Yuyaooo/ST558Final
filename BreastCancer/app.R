@@ -10,7 +10,6 @@ library(tree)
 breast <- read_csv(file = "./breastcancer.csv")
 
 ui <- dashboardPage(skin="red",
-                    
                     #add title
                     dashboardHeader(title="Breast Cancer Recurrence",titleWidth=1000),
                     
@@ -241,6 +240,9 @@ ui <- dashboardPage(skin="red",
 
 # Define server logic required to draw the plots
 server <- shinyServer(function(input, output, session) {
+    
+    breast <- read_csv(file = "./breastcancer.csv")
+    
     output$title <- renderUI({
         paste0("Frequency table of recurrence/no-recurrence and ", input$var)
     })
