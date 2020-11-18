@@ -1,6 +1,6 @@
 # ST558Final
 
-## Required Package for Final Project 
+## Required Packages for Breast Cancer App 
 
 The following packages should be installed before you run the app. 
 
